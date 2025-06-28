@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Mis Finanzas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style/main.css">
     <script src="js/utils.js" defer></script>
     <script src="js/app.js" defer></script>
@@ -11,50 +14,70 @@
 </head>
 
 <body>
-    <header>
-        <h1>Gestor de Finanzas Personales</h1>
-    </header>
+    <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center py-4">
+        <header class="mb-4 text-center">
+            <h1>Gestor de Finanzas Personales</h1>
+        </header>
 
-    <section id="sueldo">
-        <h2>Ingreso Mensual</h2>
-        <input type="number" id="inputSueldo" placeholder="Ingresa tu sueldo mensual">
-        <button onclick="guardarSueldo()">Guardar</button>
-    </section>
+        <p id="mensajeInicial" class="mensaje-inicial text-center mb-4"></p>
 
-    <section id="ahorro">
-        <h2>Ahorro</h2>
-        <label for="porcentaje">Porcentaje de ahorro:</label>
-        <input type="range" id="porcentaje" min="0" max="100" step="5" oninput="actualizarAhorro(this.value)">
-        <span id="porcentajeValor">0%</span>
-    </section>
+        <section id="sueldo" class="mb-4 w-100" style="max-width: 400px;">
+            <h2 class="mb-3 text-center">Ingreso Mensual</h2>
+            <div class="input-group">
+                <input type="number" id="inputSueldo" class="form-control" placeholder="Ingresa tu sueldo mensual"
+                    aria-label="Sueldo mensual">
+                <button class="btn btn-primary" onclick="guardarSueldo()">Guardar</button>
+            </div>
+        </section>
 
-    <section id="gastos">
-        <h2>Registro de Gastos</h2>
-        <form id="formGasto">
-            <input type="text" placeholder="Descripción" id="descripcion">
-            <input type="number" placeholder="Monto" id="monto">
-            <select id="categoria">
-                <option value="Alimentación">Casa</option>
-                <option value="Transporte">Remesa</option>
-                <option value="Transporte">Transporte</option>
-                <option value="Transporte">Gastos fijos</option>
-                <option value="Transporte">Gastos Personales</option>
-                <option value="Transporte">Otros</option>
-                <!-- más opciones -->
-            </select>
-            <button type="submit">Agregar Gasto</button>
-        </form>
-        <ul id="listaGastos"></ul>
-    </section>
+        <section id="ahorro" class="mb-4 w-100" style="max-width: 400px;">
+            <h2 class="mb-3 text-center">Ahorro</h2>
+            <label for="porcentaje" class="form-label">Porcentaje de ahorro: <span
+                    id="porcentajeValor">0%</span></label>
+            <input type="range" id="porcentaje" class="form-range" min="0" max="100" step="5"
+                oninput="actualizarAhorro(this.value)">
+        </section>
 
-    <section id="reporte">
-        <h2>Reporte de Flujo de Dinero</h2>
-        <div id="resumen"></div>
-        <canvas id="grafico"></canvas>
-        <button onclick="exportarPDF()">Exportar reporte en PDF</button>
-    </section>
+        <section id="gastos" class="mb-4 w-100" style="max-width: 600px;">
+            <h2 class="mb-3 text-center">Registro de Gastos</h2>
+            <form id="formGasto" class="row g-2 align-items-center">
+                <div class="col-sm-3">
+                    <input type="number" class="form-control" placeholder="Monto" id="monto" aria-label="Monto gasto">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="Descripción" id="descripcion"
+                        aria-label="Descripción gasto">
+                </div>
+                <div class="col-sm-3">
+                    <select id="categoria" class="form-select" aria-label="Categoría gasto">
+                        <option value="Alimentación">Casa</option>
+                        <option value="Remesa">Remesa</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="GatosFijos">Gastos fijos</option>
+                        <option value="GatosPersonales">Gastos Personales</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 d-grid">
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+            </form>
+            <ul id="listaGastos" class="list-group mt-3"></ul>
+        </section>
 
+        <section id="reporte" class="w-100" style="max-width: 600px;">
+            <h2 class="mb-3 text-center">Reporte de Flujo de Dinero</h2>
+            <div id="resumen" class="mb-3"></div>
+            <canvas id="grafico" class="mb-3 w-100" style="max-height: 300px;"></canvas>
+            <div class="d-flex justify-content-between">
+                <button onclick="exportarPDF()" class="btn btn-primary">Exportar reporte en PDF</button>
+                <button id="btnReiniciar" class="btn btn-danger">Reiniciar Todo</button>
+            </div>
+        </section>
+    </div>
 
+    <!-- Bootstrap Bundle JS (Popper + Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
