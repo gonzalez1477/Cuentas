@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Finanzas</title>
+    <link rel="stylesheet" href="style/main.css">
+    <script src="js/utils.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Gestor de Finanzas Personales</h1>
+    </header>
+
+    <section id="sueldo">
+        <h2>Ingreso Mensual</h2>
+        <input type="number" id="inputSueldo" placeholder="Ingresa tu sueldo mensual">
+        <button onclick="guardarSueldo()">Guardar</button>
+    </section>
+
+    <section id="ahorro">
+        <h2>Ahorro</h2>
+        <label for="porcentaje">Porcentaje de ahorro:</label>
+        <input type="range" id="porcentaje" min="0" max="100" step="5" oninput="actualizarAhorro(this.value)">
+        <span id="porcentajeValor">0%</span>
+    </section>
+
+    <section id="gastos">
+        <h2>Registro de Gastos</h2>
+        <form id="formGasto">
+            <input type="text" placeholder="Descripción" id="descripcion">
+            <input type="number" placeholder="Monto" id="monto">
+            <select id="categoria">
+                <option value="Alimentación">Casa</option>
+                <option value="Transporte">Remesa</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Transporte">Gastos fijos</option>
+                <option value="Transporte">Gastos Personales</option>
+                <option value="Transporte">Otros</option>
+                <!-- más opciones -->
+            </select>
+            <button type="submit">Agregar Gasto</button>
+        </form>
+        <ul id="listaGastos"></ul>
+    </section>
+
+    <section id="reporte">
+        <h2>Reporte de Flujo de Dinero</h2>
+        <div id="resumen"></div>
+        <canvas id="grafico"></canvas>
+        <button onclick="exportarPDF()">Exportar reporte en PDF</button>
+    </section>
+
+
+</body>
+
+</html>
