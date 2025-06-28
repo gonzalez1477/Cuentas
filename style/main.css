@@ -17,6 +17,10 @@ body {
     padding: 20px;
 }
 
+.Contenedor_principal{
+    background-color: #072c3a;
+}
+
 header {
     background: linear-gradient(to right, var(--morado), var(--rosado));
     color: white;
@@ -128,4 +132,51 @@ canvas#grafico {
     color: #444;
     font-style: italic;
     margin-top: 1em;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px 10px;
+    }
+
+    section {
+        padding: 15px 10px;
+        margin-top: 15px;
+    }
+
+    input,
+    select,
+    button {
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    /* Para evitar que el input range se vea demasiado ancho */
+    #porcentaje {
+        max-width: 100%;
+    }
+
+    /* Ajustar la lista de gastos para que no se vea apretada */
+    ul#listaGastos li {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Ajustar botones para mejor usabilidad táctil */
+    button {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+
+    /* Ajuste en el canvas para que ocupe el ancho completo */
+    canvas#grafico {
+        max-width: 100% !important;
+        height: auto !important;
+    }
 }
