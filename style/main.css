@@ -12,7 +12,7 @@
 /* Estilo general del body */
 body {
     background-color: var(--fondo);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Dancing Script', cursive;
     color: var(--texto-principal);
     padding: 2rem;
     min-height: 100vh;
@@ -33,6 +33,7 @@ header h1 {
     font-weight: bold;
     box-shadow: 10px 10px 25px rgba(67, 3, 3, 0.1);
     font-size: 50px;
+    
 }
 
 /* Entradas y controles */
