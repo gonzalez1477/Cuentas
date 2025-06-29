@@ -99,7 +99,7 @@ function mostrarGastos() {
         const li = document.createElement('li');
         li.innerHTML = `
             ${gasto.categoria}: ${gasto.descripcion} - ${formatoMoneda(gasto.monto)}
-            <button onclick="eliminarGasto(${index})" class="btn-eliminar">Eliminar</button>
+            <button onclick="eliminarGasto(${index})" class="btn btn-danger">Eliminar</button>
         `;
         lista.appendChild(li);
     });
