@@ -12,57 +12,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 </head>
 
-<body class="d-flex justify-content-center align-items-center min-vh-100">
+<body class="Contenedor_principal container-fluid">
     <!-- Contenedor único central -->
-    <div class="Contenedor_principal border rounded p-4 shadow" style="max-width: 600px;">
-        <header class="mb-4 text-center">
-            <h1>Gestor de Finanzas Personales</h1>
-        </header>
 
-        <p id="mensajeInicial" class="mensaje-inicial text-center"></p>
+    <header class="mb-4 text-center">
+        <h1>Gestor de Finanzas Personales</h1>
+    </header>
 
-        <section id="sueldo" class="mb-4 text-center">
-            <h2>Ingreso Mensual</h2>
-            <input type="number" id="inputSueldo" placeholder="Ingresa tu sueldo mensual" class="form-control mx-auto"
-                style="max-width: 300px;">
-            <button onclick="guardarSueldo()" class="btn btn-primary mt-2">Guardar</button>
-        </section>
+    <p id="mensajeInicial" class="mensaje-inicial text-center"></p>
 
-        <section id="ahorro" class="mb-4 text-center">
-            <h2>Ahorro</h2>
-            <label for="porcentaje" class="form-label">Porcentaje de ahorro:</label>
-            <input type="range" id="porcentaje" min="0" max="100" step="5" oninput="actualizarAhorro(this.value)"
-                class="form-range mx-auto" style="max-width: 300px;">
-            <span id="porcentajeValor">0%</span>
-        </section>
 
-        <section id="gastos" class="mb-4 text-center">
-            <h2>Registro de Gastos</h2>
-            <form id="formGasto" class="d-flex flex-column align-items-center">
-                <input type="number" placeholder="Monto" id="monto" class="form-control mb-2" style="max-width: 300px;">
-                <input type="text" placeholder="Descripción" id="descripcion" class="form-control mb-2"
-                    style="max-width: 300px;">
-                <select id="categoria" class="form-select mb-2" style="max-width: 300px;">
-                    <option value="Alimentación">Casa</option>
-                    <option value="Remesa">Remesa</option>
-                    <option value="Transporte">Transporte</option>
-                    <option value="GatosFijos">Gastos fijos</option>
-                    <option value="GatosPersonales">Gastos Personales</option>
-                    <option value="Otros">Otros</option>
-                </select>
-                <button type="submit" class="btn btn-success">Agregar Gasto</button>
-            </form>
-            <ul id="listaGastos" class="mt-3"></ul>
-        </section>
 
-        <section id="reporte" class="mb-4 text-center">
-            <h2>Reporte de Flujo de Dinero</h2>
-            <div id="resumen"></div>
-            <canvas id="grafico" class="mx-auto d-block"></canvas>
-            <button onclick="exportarPDF()" class="btn btn-outline-primary mt-2">Exportar reporte en PDF</button>
-            <button id="btnReiniciar" class="btn btn-danger mt-2">Reiniciar Todo</button>
-        </section>
+    <h1 class="text-center">Ingreso Mensual</h1>
+    <input type="number" id="inputSueldo" placeholder="Ingresa tu sueldo mensual" class="form-control mx-auto"
+        style="max-width: 300px;">
+
+    <div class="d-flex justify-content-center">
+        <button onclick="guardarSueldo()" class="btn btn-primary mt-2">Guardar</button>
     </div>
+
+
+    <h2 class="text-center">Porcentaje de ahorro:</h2>
+
+    <div class="d-flex justify-content-center align-items-center gap-2">
+        <input type="range" id="porcentaje" min="0" max="100" step="5" oninput="actualizarAhorro(this.value)"
+            class="form-range" style="max-width: 300px;">
+        <span id="porcentajeValor">0%</span>
+    </div>
+
+
+
+
+    <section id="gastos" class="mb-4 text-center">
+        <h2>Registro de Gastos</h2>
+        <form id="formGasto" class="d-flex flex-column align-items-center">
+            <input type="number" placeholder="Monto" id="monto" class="form-control mb-2" style="max-width: 300px;">
+            <input type="text" placeholder="Descripción" id="descripcion" class="form-control mb-2"
+                style="max-width: 300px;">
+            <select id="categoria" class="form-select mb-2" style="max-width: 300px;">
+                <option value="Alimentación">Casa</option>
+                <option value="Remesa">Remesa</option>
+                <option value="Transporte">Transporte</option>
+                <option value="GatosFijos">Gastos fijos</option>
+                <option value="GatosPersonales">Gastos Personales</option>
+                <option value="Otros">Otros</option>
+            </select>
+            <button type="submit" class="btn btn-success">Agregar Gasto</button>
+        </form>
+        <ul id="listaGastos" class="mt-3"></ul>
+    </section>
+
+    <section id="reporte" class="mb-4 text-center">
+        <h2>Reporte de Flujo de Dinero</h2>
+        <div id="resumen"></div>
+        <button onclick="exportarPDF()" class="btn btn-danger mt-2">Exportar reporte en PDF</button>
+        <button id="btnReiniciar" class="btn btn-danger mt-2">Reiniciar Todo</button>
+    </section>
+
 </body>
 
 </html>

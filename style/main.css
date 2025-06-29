@@ -1,182 +1,125 @@
+/* Paleta de colores principal */
 :root {
-    --celeste: #AEE4F8;
-    --morado: #B388EB;
-    --rosado: #FDC5F5;
-    --vino: #720026;
-    --azul-claro: #CAF0F8;
-    --blanco: #fff;
-    --gris-claro: #f5f5f5;
-    --texto: #333;
+    --celeste: #a7f9b2;
+    --morado: #8e44ad;
+    --rosado-pastel: #f8c9dc;
+    --vino: #7b1e3d;
+    --azul-claro: #cfe9f5;
+    --texto-principal: #2c3e50;
+    --fondo: #f4f6f9;
 }
 
+/* Estilo general del body */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: var(--gris-claro);
-    color: var(--texto);
-    margin: 0;
-    padding: 20px;
+    background-color: var(--fondo);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--texto-principal);
+    padding: 2rem;
+    min-height: 100vh;
 }
 
-.Contenedor_principal{
-    background-color: #072c3a;
+/* Contenedor principal */
+.Contenedor_principal {
+    background-color: rgb(94, 145, 146);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 800px;
 }
 
-header {
-    background: linear-gradient(to right, var(--morado), var(--rosado));
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+/* Encabezado */
+header h1 {
+    color: var(--morado);
+    font-weight: bold;
+    box-shadow: 10px 10px 25px rgba(67, 3, 3, 0.1);
+    font-size: 50px;
 }
 
-h1,
-h2 {
-    margin: 0 0 10px;
-}
-
-section {
-    background: var(--blanco);
-    border-left: 6px solid var(--celeste);
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-input,
+/* Entradas y controles */
+input[type="number"],
+input[type="text"],
 select,
-button {
-    display: block;
-    margin: 10px 0;
-    padding: 12px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    box-sizing: border-box;
+.form-control,
+.form-select {
+    border: 2px solid var(--azul-claro);
+    border-radius: 12px;
+    padding: 0.6rem;
+    background-color: #ffffff;
+    color: var(--texto-principal);
+    transition: all 0.3s ease;
 }
 
-input:focus,
+input[type="number"]:focus,
+input[type="text"]:focus,
 select:focus {
-    outline: 2px solid var(--morado);
+    border-color: var(--morado);
+    box-shadow: 0 0 8px var(--celeste);
+}
+
+/* Rango de porcentaje */
+input[type="range"] {
+    accent-color: var(--vino);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--morado);
     border-color: var(--morado);
 }
 
-button {
-    background: var(--vino);
+.btn-success {
+    background-color: var(--vino);
+    border-color: var(--vino);
+}
+
+.btn-outline-primary {
+    color: var(--morado);
+    border-color: var(--morado);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--morado);
     color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
 }
 
-button:hover {
-    background: #9a0f34;
+.btn-danger {
+    background-color: var(--rosado-pastel);
+    color: var(--vino);
+    border-color: var(--vino);
 }
 
-#porcentaje {
-    accent-color: var(--morado);
+.btn-danger:hover {
+    background-color: var(--vino);
+    color: white;
 }
 
-#porcentajeValor {
-    font-weight: bold;
+/* Mensaje inicial */
+.mensaje-inicial {
+    font-style: italic;
     color: var(--vino);
 }
 
-ul#listaGastos {
+/* Lista de gastos */
+#listaGastos {
     list-style: none;
     padding: 0;
-    margin-top: 15px;
+    margin: 0;
 }
 
 #listaGastos li {
-    background: var(--azul-claro);
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 4px solid var(--morado);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: var(--azul-claro);
+    margin: 0.4rem 0;
+    padding: 0.6rem;
+    border-radius: 10px;
+    font-weight: 500;
 }
 
-#resumen p {
-    margin: 6px 0;
-    font-size: 1rem;
-}
-
-canvas#grafico {
-    margin-top: 20px;
-    width: 100% !important;
-    max-width: 500px;
-    height: auto !important;
-}
-
-.btn-eliminar {
-    margin-left: 10px;
-    background-color: #c0392b;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.85rem;
-}
-
-.btn-eliminar:hover {
-    background-color: #e74c3c;
-}
-
-.mensaje-inicial {
-    color: #444;
-    font-style: italic;
-    margin-top: 1em;
-}
-
-/* Diseño responsivo para pantallas pequeñas */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    header {
-        padding: 15px 10px;
-    }
-
-    section {
-        padding: 15px 10px;
-        margin-top: 15px;
-    }
-
-    input,
-    select,
-    button {
-        max-width: 100%;
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    /* Para evitar que el input range se vea demasiado ancho */
-    #porcentaje {
-        max-width: 100%;
-    }
-
-    /* Ajustar la lista de gastos para que no se vea apretada */
-    ul#listaGastos li {
-        font-size: 0.9rem;
-        padding: 8px 12px;
-    }
-
-    /* Ajustar botones para mejor usabilidad táctil */
-    button {
-        padding: 12px;
-        font-size: 1.1rem;
-    }
-
-    /* Ajuste en el canvas para que ocupe el ancho completo */
-    canvas#grafico {
-        max-width: 100% !important;
-        height: auto !important;
-    }
+/* Gráfico */
+canvas {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border: 2px solid var(--celeste);
+    border-radius: 12px;
+    background-color: #fff;
 }
